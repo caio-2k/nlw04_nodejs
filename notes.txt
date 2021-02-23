@@ -1,0 +1,47 @@
+Assim que criar o projeto, rodar o comando dentro da pasta API: yarn init -y (cria um package.json).
+
+2 - Instalar dependencies
+yarn add express -> cria node_modules e express.
+
+Express é um micro-framework para trabalhar com node para criar rotas, middlewares, criar servidor para rodar a aplicação, mais utilizado pela comunidade node.js.
+
+3 - Cria pasta scr com arquivo server.ts.
+
+yarn add @types/express -D
+Instalando como dependência de desenvolviemnto pois não irei utilizar em ambiente de produção.
+
+Visualizar comentários para estrutura.
+
+Para executar TS com node, instale o TS:
+yarn add typescript -D
+
+executar typescript na aplicação:
+yarn tsc --init
+
+Converter o código para Javascript, só que ao invés de converter iremos utilizar o ts-node-dev -D, ele mesmo irá em tempo de execução converter o codigo para typescript.
+
+yarn add ts-node-dev D
+
+No package.json criar um objeto scripts
+dev com ts-node-dev/server.ts (vai rodar o arquivo).
+
+"scripts":{
+	"dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+},
+
+Nome de rotas podem ser iguais mas os
+metodos devem ser diferentes.
+
+O Browser por padrão trabalha com reqs 
+get, para trabalhar com outros metodos
+que nao sejam get utilizaremos o insomnia (simular o cliente acessando nossa aplicação).
+
+No manage environmetst adiciona:
+"baseURL": "http://localhost:3333"
+já iremos ter acesso ao localhost.
+
+Cria uma requisição:
+Requisição POST
+Adiciona a baseURL e o "/" no final
+
+ao dar um Send ele vai retornar a mensagem que estava aneriormente inserida no POST

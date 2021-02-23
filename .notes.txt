@@ -1,0 +1,1 @@
+Assim que criar o projeto, rodar o comando dentro da pasta API: yarn init -y (cria um package.json).
