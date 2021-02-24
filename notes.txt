@@ -45,3 +45,23 @@ Requisição POST
 Adiciona a baseURL e o "/" no final
 
 ao dar um Send ele vai retornar a mensagem que estava aneriormente inserida no POST
+
+---------------------------------------------------------------------------
+
+2 Dia - BD
+
+Knex - Querybuilders (informa qual será o BD)
+
+TypeORM - ORM é um mapeamento entre objetos, vai pegar a nossa classe
+dentro do nosso projeto (entidade) e vai conseguir mapear a classe para 
+uma tabela especifica do banco de Dados.
+
+TypeORM trabalha com typescript e consegue alterar o drive de conf de BD
+tranquilamente pois ele se adapta.
+
+to install -> get started
+yarn add typeorm reflect-metadata
+
+o driver que iremos utilizar será o sqlite3 pois é um banco em memoria
+não precisaremos isntalar nada na nossa máquina, conseguimos utilizar em 
+memoria, em produção não podemos utilizar ele.
