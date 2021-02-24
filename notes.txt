@@ -65,3 +65,67 @@ yarn add typeorm reflect-metadata
 o driver que iremos utilizar será o sqlite3 pois é um banco em memoria
 não precisaremos isntalar nada na nossa máquina, conseguimos utilizar em 
 memoria, em produção não podemos utilizar ele.
+
+yarn add sqlite3
+
+> criar ormconfig.json, passar pro typeorm quais as info que iremos utilizar,
+banco de dados, entidades, migrations, etc.
+
+para isso criamos um JSON chamado ormconfig.json na pasta raiz:
+{
+  "type": "sqlite",
+  "database": "./src/database/db.sqlite"
+}
+
+em seguida criamos uma pasta databases no dir raiz com um arquivo index.ts
+
+import { createConnection } from "typeorm";
+
+createConnection();
+
+importar o reflect-metadata no server.ts e o database
+
+uma vez feito isso só testar com yarn dev.
+
+Criar migration de usuário:
+migration permite que as alterações sejam feitas dentro do proprio projeto,
+ou seja, qualquer alteralção feita e baixaxda poderá ser visualizad, ou seja,
+migration guarda um histórico do nosso BD, toda estrutura de tabela irá 
+ficar dentro de uma migration e portanto se alguem pegar o codigo e rodar 
+as migrations sempre os bancos de dados estarão iguais.
+
+Para criar migrations:
+Para criarmos migrations precisamos criar um comando para rodas as migrations
+para isso, no package.json em scripts iremos adicionar:
+"typeorm": "ts-node-dev node_modules/typeorm/cli.js"
+
+testar com yarn typeorm
+
+
+definir a extensão das nossas migrations no ormconfig:
+array pois podemos receber  mais de uma opção.
+"migrations": ["./src/database/migrations/**.ts"],
+
+criar pasta para receber as migrations dentro da pasta database e
+adicionar a pasta no ormconfig:
+"cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+
+criar migration: yarn typeorm migration:create -n CreateUsers
+
+Vai criar um arquivo na pasta informada.
+
+lá criamos nossas tabelas.
+
+para rodar a migration: yarn typeorm migration:run
+
+como testar?
+
+utilizando extension chamada sqlite ou preferencialmente beekeper studio.
+
+a ferramenta solicita o BD informa sqlite e escolhe  onde tá o arquivo do DB.
+dá pra testar a conexão e conectar. Lá teremos as migrations criadas
+
+
+

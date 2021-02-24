@@ -1,5 +1,8 @@
 // Importando o Express
-import express, { response } from 'express';
+import express from 'express';
+
+//Importando banco de dados, não precisa informar index.
+import './database';
 
 // Criando constante para iniciar a func do express
 const app = express();
