@@ -127,5 +127,21 @@ utilizando extension chamada sqlite ou preferencialmente beekeper studio.
 a ferramenta solicita o BD informa sqlite e escolhe  onde tá o arquivo do DB.
 dá pra testar a conexão e conectar. Lá teremos as migrations criadas
 
+desfazer a ultima migration que foi rodada, toda vez que eu rodo o run ele roda todas
+as migrations porem quando dou um revert ele vai rodar somente a ultima migration
+yarn typeorm migration:revert
 
+criar uma pasta controllers, que um controller é um controlador, tudo que estamos
+fazendo estamos fazendo dentro do server, que não é o correto, deixando poluido,
+todas as regras de methods sejam inseridas no controller (um controller pra cada func)
+e o nosso server vai ser responsável por chamar o controoler e dentro do controller
+sera feita todas as regras de negocios.
 
+primeiro controller: UserController.ts
+
+Cria um arquivo só pra rotas (routes.ts) que basicamente são os /users por ex.
+
+utilizando uuid, blib responsavel por criar o id:
+
+yarn add uuid
+yarn add @types/uuid -D
