@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
-import { User } from "../models/User";
+import { getCustomRepository } from "typeorm";
+import { UsersRepository } from "../repositories/UsersRepository";
 
 class UserController {
   //Criar o metodo create e atribuindo os dois tipos
@@ -9,7 +9,7 @@ class UserController {
     const {name, email} = request.body;
 
     //Criando repositorio de usuário, para manejar a entidade/dados.
-    const usersRepository = getRepository(User);
+    const usersRepository = getCustomRepository(UsersRepository);
 
     //SELECT * FROM USERS WHERE EMAIL = "EMAIL"
     const userAlreadyExists = await usersRepository.findOne({
@@ -28,7 +28,7 @@ class UserController {
 
     await usersRepository.save(user);
 
-    return response.json(user);
+    return response.status(201).json(user);
   }
 }
 

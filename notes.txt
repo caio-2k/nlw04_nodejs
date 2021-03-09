@@ -145,3 +145,58 @@ utilizando uuid, blib responsavel por criar o id:
 
 yarn add uuid
 yarn add @types/uuid -D
+
+---------------------------------------------------------
+
+Testes automatizados:
+
+
+1 tipo d teste - Teste unitários
+
+Testes que vão t estar determinada funcionalidade da aplicação (serviço, função em especifico).
+
+Geralmente utilizamos quando estamos fazendo TDD (Test Domain Drive) quando começamos a desenvolver o código orientado a testes.
+
+Aplicação TDD começariamos pela funcionalidade de criação de user mas não usariamos a informações reais, não usariamos BD, repo fake e bd fake, testando assim então.
+
+Nunca iremos testar fazendo a cesso banco de dados e api externas
+
+
+2 tipo de de testes - Testes de integração
+
+a gente testa a funcionalidade completa da aplicação, ex: teste  de integração de criação de usuário, simulando acesso a request -> rotas -> controller -> repository
+<- repository <- controller <- response
+
+iremos fazer no projeto.
+
+3 - Ponta a Ponta (E2E)
+
+Vai testar toda ação do usuário numa açaão é mais utilizado quando trabalhamos com aplicações frontend (cadastrar usuario com formulario, testamos usuario digitando, clicou, esperou algo).
+
+Franklin, mais cedo falei com a Liliane sobre o processo de configuração de carteira e foi visto que o banco ainda não colocou o convênio em produção, ela indicou que eu entrasse em contato contigo.
+
+Acreditamos que o convênio já deveria estar em produção e queria verificar contigo a possibilidade de você entrar em contato com o banco para averiguar o status da solicitação, uma vez que assim que for concluído poderemos finalizar o processo de carteira.
+
+
+Ferramneta para testes: jest
+
+yarn add jest @types/jest -D
+
+
+Criar arquivo de conf do jest: yarn jest --init
+
+no jest config deixar o bail como true(não passa caso algum teste falhe)
+
+desabilita test  environment
+testmatch descomenta, caminho onde iremos colocar os testes
+"**/__tests__/*.test.ts"
+
+yarn add ts-jest -D
+
+preset ts-jest nas conf
+
+
+
+
+
+
